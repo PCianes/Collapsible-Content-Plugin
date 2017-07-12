@@ -19,13 +19,13 @@ To install this plugin, yo can download it by clicking on the GitHub download bu
 
 - Navigate to the `wp-content/plugins` folder of your project
 - Clone the repository by copying/pasting this line of code in terminal:
- `git clone git@github.com:PCianes/Collapsible-content-plugin.git`.
-- Log into your WordPress website and go to plugins to activate the plugin Collapsible content plugin.
+ `git clone git@github.com:PCianes/Collapsible-Content-Plugin.git`.
+- Log into your WordPress website and go to plugins to activate the plugin Collapsible Content Plugin.
 
 ## Continue Development
 
 If you want to continue development, you will need to have Composer, Gulp, Node.js and npm installed on your machine. 
 
-- Navigate to the `wp-content/plugins/collapsible-content` folder. 
+- Navigate to the `wp-content/plugins/Collapsible-Content-Plugin` folder. 
 - Type `npm install` to install all of the `node_modules` for Gulp.
 - Type `composer install` to install the Composer PHP packages.
