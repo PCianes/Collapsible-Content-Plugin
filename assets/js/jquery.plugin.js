@@ -2,22 +2,15 @@
 
 	'use strict';
 
-	var $qaQuestions, $qaAnswers, $qaIcons,
-		$teaserMessages, $teaserHiddenContents, $teaserIcons;
+	var $visibleContents, $hiddenContents, $icons;
 
 	var init = function() {
-		$qaQuestions = $('.qa--question');
-		$qaAnswers = $qaQuestions.next();
-		$qaIcons = $qaQuestions.find('.qa--icon');
+		$visibleContents = $('.collapsible-content--visible');
+		$hiddenContents = $visibleContents.next();
+		$icons = $visibleContents.find('.collapsible-content--icon');
 
-		$qaQuestions.on('click', {contentType: 'qa'}, clickHandler);
-
-		$teaserMessages = $('.teaser--visible-message');
-		$teaserHiddenContents = $teaserMessages.next();
-		$teaserIcons = $teaserMessages.find('.teaser--icon');
-
-		$teaserMessages.on('click', {contentType: 'teaser'}, clickHandler);
-	} 
+		$visibleContents.on('click', clickHandler);
+	}
 
 	/**
 	 * Click event handler
@@ -25,8 +18,18 @@
 	 * @param event
 	 *
 	 */
-	var clickHandler = function( event ){
-		console.log( event.data );
+	var clickHandler = function(){
+		var index = $visibleContents.index( this ),
+			$hiddenContent = $( $hiddenContents[ index ] ),
+			isHiddenContentShowing = $hiddenContent.is(':visible');
+
+		if ( isHiddenContentShowing ) {
+			$hiddenContent.slideUp( 300 );
+		} else {
+			$hiddenContent.slideDown( 300 );
+		}
+
+		changeIcon( index, isHiddenContentShowing );
 
 	}
 
@@ -37,23 +40,28 @@
 	/**
 	 * Change the Icon Handler
 	 */
-	 function changeIcon(){
+	function changeIcon( index, isHiddenContentShowing ) {
+		var $iconElement = $( $icons[ index ] ),
+			showIcon = $iconElement.data( 'showIcon' ),
+			hideIcon = $iconElement.data( 'hideIcon' ),
+			removeClass, addClass;
+			
+		if ( isHiddenContentShowing ) {
+			addClass = showIcon;
+			removeClass = hideIcon;
+		} else {
+			addClass = hideIcon;
+			removeClass = showIcon;
+		}
 
-	 }
-
-	/**
-	 * Get the element index number
-	 */
-	 function getIndex(){
-
-	 }
-
+		$iconElement
+			.removeClass( removeClass )
+			.addClass( addClass );
+ 	}
 
 
 	$(document).ready(function(){
 		init();
-
-		console.log(collapsibleContentParameters);
 	});
 
 })(jQuery, window, document);
