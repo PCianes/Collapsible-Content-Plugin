@@ -3,7 +3,7 @@
  * Plugin Handler
  *
  * @package     PCianes\CollapsibleContent
- * @since       1.0.0
+ * @since       1.2.0
  * @author      Pablo Cianes
  * @link        https://pablocianes.com
  * @license     GNU-2.0+
@@ -42,7 +42,7 @@ function enqueue_assets() {
 /**
  * Autoload plugin files
  *
- * @since 1.0.0
+ * @since 1.2.0
  *
  * @return void
  */
