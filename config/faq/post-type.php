@@ -1,6 +1,6 @@
 <?php
 /**
- * FAQ Module Handler
+ * Runtime configuration for the FAQ custom post type.
  *
  * @package     PCianes\Module\FAQ\Custom
  * @since       1.0.0
@@ -10,47 +10,13 @@
  */
 namespace PCianes\Module\FAQ\Custom;
 
-add_filter( 'add_custom_post_type_runtime_config', __NAMESPACE__ . '\register_faq_custom_post_type' );
-
-/**
- * Add 'FAQ' custom post type
- *
- * @since 1.0.0
- *
- * @param array $config Array of all the custom post type configurations
- *
- * @return $configs
- */
-function register_faq_custom_post_type( array $configs) {
-
-	$config = include( COLLAPSIBLE_CONTENT_DIR . 'config/faq/post-type.php');
-
-	$configs[ $config['post_type']] = $config;
-
-	return $configs;
-}
-
-
-add_filter( 'add_custom_post_type_runtime_config', __NAMESPACE__ . '\register_portfolio_custom_post_type' );
-
-/**
- * Add 'FAQ' custom post type
- *
- * @since 1.0.0
- *
- * @param array $config Array of all the custom post type configurations
- *
- * @return $configs
- */
-function register_portfolio_custom_post_type( array $configs) {
-
-	$config = array(
-	'post_type'	=> 'portfolio',
+return array(
+	'post_type'	=> 'faq',
 
 	'labels'	=> array(
-		'post_type'		 	 => 'portfolio',
-		'singular_label' 	 => 'portfolio',
-		'plural_label'	 	 => 'portfolios',
+		'post_type'		 	 => 'faq',
+		'singular_label' 	 => 'FAQ',
+		'plural_label'	 	 => 'FAQs',
 		'in_sentence_label'	 => 'frecuently asked questions (FAQs)',
 		'text_domain'	 	 => FAQ_MODULE_TEXT_DOMAIN,
 	),
@@ -71,7 +37,7 @@ function register_portfolio_custom_post_type( array $configs) {
 	),
 
 	'args'		=> array(
-		'label'					=> __( 'portfolios', FAQ_MODULE_TEXT_DOMAIN ),
+		'label'					=> __( 'FAQs', FAQ_MODULE_TEXT_DOMAIN ),
 		'description'           => __( 'Frecuently Asked Questions (FAQ)', FAQ_MODULE_TEXT_DOMAIN ),
 		'labels'                => '', // automatically generate the labels.
 		'supports'              => '', // automatically generate the support features.
@@ -94,7 +60,3 @@ function register_portfolio_custom_post_type( array $configs) {
 
 
 );
-	$configs[ $config['post_type']] = $config;
-
-	return $configs;
-}

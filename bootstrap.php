@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'COLLAPSIBLE_CONTENT_PLUGIN', __FILE__ );
-define( 'COLLAPSIBLE_CONTENT_DIR', plugin_dir_path( __FILE__ ) );
+define( 'COLLAPSIBLE_CONTENT_DIR', trailingslashit(__DIR__) );
 
 $plugin_url = plugin_dir_url( __FILE__ );
 
