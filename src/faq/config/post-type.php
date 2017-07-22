@@ -2,25 +2,34 @@
 /**
  * Runtime configuration for the FAQ custom post type.
  *
- * @package     PCianes\Module\FAQ\Custom
+ * @package     PCianes\Module\FAQ
  * @since       1.0.0
  * @author      Pablo Cianes
  * @link        https://pablocianes.com
  * @license     GNU-2.0+
  */
-namespace PCianes\Module\FAQ\Custom;
+namespace PCianes\Module\FAQ;
 
 return array(
+	/**================================================
+	* The post type name.
+	*====================================================*/
 	'post_type'	=> 'faq',
 
+	/**================================================
+	* These are label configuration.
+	*====================================================*/
 	'labels'	=> array(
-		'post_type'		 	 => 'faq',
+		'custom_type'		 	 => 'faq',
 		'singular_label' 	 => 'FAQ',
 		'plural_label'	 	 => 'FAQs',
 		'in_sentence_label'	 => 'frecuently asked questions (FAQs)',
 		'text_domain'	 	 => FAQ_MODULE_TEXT_DOMAIN,
 	),
 
+	/**================================================
+	* Supported features por this post type.
+	*====================================================*/
 	'features'	=> array(
 		'base_post_type'		=> 'post',
 		'exclude'				=> array(
@@ -36,6 +45,9 @@ return array(
 
 	),
 
+	/**================================================
+	* Registration arguments.
+	*====================================================*/
 	'args'		=> array(
 		'label'					=> __( 'FAQs', FAQ_MODULE_TEXT_DOMAIN ),
 		'description'           => __( 'Frecuently Asked Questions (FAQ)', FAQ_MODULE_TEXT_DOMAIN ),

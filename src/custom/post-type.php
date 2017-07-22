@@ -25,6 +25,8 @@ add_action( 'init', __NAMESPACE__ . '\register_the_custom_post_types' );
  */
 function register_the_custom_post_types() {
 
+	$configs = array();
+
 	/**
 	 * Add custom post type runtime configurations for generating and
 	 * registering each with WordPress.
@@ -33,7 +35,7 @@ function register_the_custom_post_types() {
 	 *
 	 * @param array Array of configurations.
 	 */
-	$configs = (array) apply_filters('add_custom_post_type_runtime_config', array());
+	$configs = (array) apply_filters('add_custom_post_type_runtime_config', $configs);
 
 	foreach ($configs as $post_type => $config){
 		register_the_custom_post_type( $post_type, $config );

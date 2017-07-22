@@ -3,12 +3,14 @@
  * Plugin Handler
  *
  * @package     PCianes\CollapsibleContent
- * @since       1.2.0
+ * @since       1.3.0
  * @author      Pablo Cianes
  * @link        https://pablocianes.com
  * @license     GNU-2.0+
  */
 namespace PCianes\CollapsibleContent;
+
+use PCianes\Module\Custom as CustomModule;
 
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 
@@ -42,7 +44,7 @@ function enqueue_assets() {
 /**
  * Autoload plugin files
  *
- * @since 1.2.0
+ * @since 1.3.0
  *
  * @return void
  */
@@ -50,7 +52,6 @@ function autoload() {
 
 	$files = array(
 		'custom/module.php',
-		'shortcode/shortcodes.php',
 		'faq/module.php',
 	);
 
@@ -58,6 +59,24 @@ function autoload() {
 		include( __DIR__ . '/'. $file);
 	}
 
+}
+
+add_action( 'plugins_loaded', __NAMESPACE__ . '\setup_plugin' );
+/**
+ * Setup the plugin.
+ *
+ * @since 1.3.0
+ *
+ * @return void
+ */
+function setup_plugin() {
+	foreach( array( 'qa', 'teaser' ) as $shortcode ) {
+		$pathto_configuration_file = sprintf( '%s/config/shortcode/%s.php',
+			COLLAPSIBLE_CONTENT_DIR,
+			$shortcode
+		);
+		CustomModule\register_shortcode( $pathto_configuration_file );
+	}
 }
 
 autoload();

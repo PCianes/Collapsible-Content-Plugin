@@ -11,7 +11,7 @@
  * Plugin Name: 	Collapsible content plugin
  * Plugin URI:  	https://github.com/PCianes/Collapsible-Content-Plugin
  * Description: 	Collapsible Content is a WordPress Plugin that shows and hides content.
- * Version:     	1.2.0
+ * Version:     	1.3.0
  * Author:      	Pablo Cianes
  * Author URI:  	https://pablocianes.com
  * Text Domain: 	collapsible_content
@@ -37,6 +37,8 @@
 
 namespace PCianes\CollapsibleContent;
 
+use PCianes\Module\Custom as CustomModule;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	die( "Oh, silly, there's nothing to see here." );
 }
@@ -55,3 +57,4 @@ define( 'COLLAPSIBLE_CONTENT_TEXT_DOMAIN', 'collapsible_content' );
 
 include( __DIR__ . '/src/plugin.php' );
 
+CustomModule\register_plugin( __FILE__ );
