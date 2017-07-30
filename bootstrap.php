@@ -58,3 +58,4 @@ define( 'COLLAPSIBLE_CONTENT_TEXT_DOMAIN', 'collapsible_content' );
 include( __DIR__ . '/src/plugin.php' );
 
 CustomModule\register_plugin( __FILE__ );
+//By Pablo Cianes
